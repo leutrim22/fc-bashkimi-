@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-bashkimi-green: #15803d; /* Classic Forest Green */
+  --color-bashkimi-dark: #050505;
+  --color-bashkimi-accent: #166534;
+  --color-bashkimi-light: #f8fafc;
+}
+
+@layer base {
+  body {
+    @apply bg-bashkimi-dark text-white font-sans antialiased selection:bg-bashkimi-green selection:text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-black tracking-tighter uppercase italic;
+  }
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
+}
+
+.bashkimi-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(21, 128, 61, 0.1),
+    rgba(21, 128, 61, 0.1) 40px,
+    transparent 40px,
+    transparent 80px
+  );
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
